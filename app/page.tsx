@@ -41,7 +41,7 @@ export default function DowntimeDetector() {
 
   // Load services from localStorage on initial load
   useEffect(() => {
-    const savedServices = localStorage.getItem("services")
+    const savedServices = localStorage.getItem("downdog-services")
     if (savedServices) {
       const parsedServices = JSON.parse(savedServices)
       setServices(parsedServices)
@@ -51,7 +51,7 @@ export default function DowntimeDetector() {
 
   // Save services to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem("services", JSON.stringify(services))
+    localStorage.setItem("downdog-services", JSON.stringify(services))
   }, [services])
 
   const addService = () => {
@@ -219,7 +219,7 @@ export default function DowntimeDetector() {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-8">🔥 Service Downtime Detector</h1>
+      <h1 className="text-3xl font-bold mb-8">🐶 Downdog: Service Downtime Detector</h1>
 
       {/* Add new service form */}
       <Collapsible open={isFormOpen} onOpenChange={setIsFormOpen} className="mb-8">
